@@ -22,7 +22,8 @@ public class TakePiece {
     public void takePiece(Piece taking, Piece taken) {
         board.nullifyPosition(taking.getLocation());
         taking.setLocation(taken.getLocation());
-        
+        taken.getChessTeam().removePiece(taken);
+        board.setPiecePosition(taking.getLocation(), taking);
     }
    
 }
