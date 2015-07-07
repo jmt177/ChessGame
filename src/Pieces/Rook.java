@@ -28,7 +28,6 @@ public class Rook extends Piece{
         // is a mistake
         if((piece.getColumn() == toMove[0] && piece.getRow() == toMove[1]) ||
            (piece.getColumn() != toMove[0] && piece.getRow() != toMove[1])){
-            System.out.println("");
             return false;
         }       
        if(inBoard(toMove) && (board.onSquare(toMove[0], toMove[1]) == null || noAlly(piece, toMove))){
@@ -85,5 +84,4 @@ public class Rook extends Piece{
         }
         return true;
     }
-    
 }

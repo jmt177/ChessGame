@@ -30,6 +30,5 @@ public class King extends Piece{
     @Override
     public boolean noAlly(Piece piece, int[] toMove) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+    }  
 }
