@@ -6,6 +6,7 @@
 package Pieces;
 
 import Movement.PieceMovement;
+import chessgame.ChessTeam;
 
 /**
  *
@@ -13,8 +14,8 @@ import Movement.PieceMovement;
  */
 public class King extends Piece{
 
-    public King(char team, int[] location) {
-        super(team, location);
+    public King(char team, int[] location, ChessTeam myTeam) {
+        super(team, location, myTeam);
     }
 
     @Override

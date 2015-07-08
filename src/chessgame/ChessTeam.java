@@ -17,8 +17,6 @@ public class ChessTeam {
     private char teamName;
     private ArrayList<Piece> team;
     
-    
-    
     public ChessTeam(char teamName, ArrayList<Piece> team){
         this.teamName = teamName;
         this.team = team;
@@ -28,6 +26,9 @@ public class ChessTeam {
         team.add(piece);
     }
     
+    public void removePiece(Piece piece){
+        this.team.remove(piece);
+    }
     public void showTeam(){
         for(int i = 0; i < team.size(); i++){
             System.out.println(getClass(team.get(i)));

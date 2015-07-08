@@ -7,6 +7,7 @@ package Pieces;
 
 import ChessBoard.Board;
 import Movement.PieceMovement;
+import chessgame.ChessTeam;
 
 /**
  *
@@ -19,8 +20,8 @@ import Movement.PieceMovement;
 public class Pawn extends Piece {
     private int dir;
     private int[] starting;
-    public Pawn(char team, int[] location) {
-        super(team, location);
+    public Pawn(char team, int[] location, ChessTeam myTeam) {
+        super(team, location, myTeam);
         starting = location;
         if(team == 'w'){
             dir = 1;
@@ -43,41 +44,37 @@ public class Pawn extends Piece {
         }
   
         if(inBoard(toMove)){
-            // not attacking, only moving forward
-            if(piece.getColumn() == toMove[0]){
-                // If the piece has not moved, can move forward 2
-                if(starting[1] == piece.getRow() && Math.abs(toMove[1] - piece.getRow()) == 2){
+            // not attacking, only moving forward. Must be an empty spot on the board
+            if(piece.getColumn() == toMove[0] && board.onSquare(toMove[0], toMove[1]) == null){
+                // If the piece has not moved, can move forward 2 OR
+                // movement distance is 1
+                if((starting[1] == piece.getRow() && Math.abs(toMove[1] - piece.getRow()) == 2)
+                   || Math.abs(toMove[1] - piece.getRow()) == 1){
                     return true;
-                // Otherwise can only move forward one
-                } else if(Math.abs(toMove[1] - piece.getRow()) != 1){
-                    return false;
-                }
+                } 
                 // Returns true here if correct direction and the distance to move is 1
-                return true;
+                return false;
                 
             // Diagonal movement, only for attacking. toMove already passed inBoard, no need to worry about that
             } else {
-  
-                // If there is no piece or if the piece is on the same team, return false
-                if(board.onSquare(toMove[0], toMove[1]) == null || 
-                   board.onSquare(toMove[0], toMove[1]).getTeam() == this.getTeam()){
-                    return false;
-                }
                 // only allowed to move 1
                 if(toMove[0] - piece.getColumn() != dir || toMove[1] - piece.getRow() != dir){
                     return false;
                 }
-                // Have not yet implemented taking a piece, when I do it will be as follows:
-                // board.nullifyPosition(PieceTaking.position)
-                // pieceTaking.setLocation(pieceTaken.getLocation)
-                // pieceTakenTeam.remove(pieceTaken)
-                // board.setPiecePosition(pieceTaking.getLocation, pieceTaking)
+                // If there is no piece or if the piece is on the saqme team, return false
+                if(board.onSquare(toMove[0], toMove[1]) == null || 
+                   board.onSquare(toMove[0], toMove[1]).getTeam() == this.getTeam()){
+                    return false;
+                }
+
                 if(Math.abs(toMove[0] - piece.getColumn()) == 1 && 
                    Math.abs(toMove[1] - piece.getRow()) == 1){
                     return true;
                 }
             }
         }
+        // if we get here, most likely don't want to let it move
+        return false;
     }
 
     @Override

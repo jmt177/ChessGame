@@ -7,8 +7,8 @@ package chessgame;
 
 import ChessBoard.Board;
 import Pieces.Piece;
-import Pieces.PieceFactory;
-import Pieces.PieceType;
+import CreatePieces.PieceFactory;
+import CreatePieces.PieceType;
 import Pieces.Rook;
 import java.util.ArrayList;
 
@@ -28,19 +28,19 @@ public class TestingTeam {
         ChessTeam whiteTeam = new ChessTeam('w', new ArrayList<Piece>());
         ChessTeam blackTeam = new ChessTeam('b', new ArrayList<Piece>());
         ArrayList<Piece> allPieces = new ArrayList<Piece>();
-        allPieces.add(pieceFactory.getPiece(PieceType.PAWN, 'w', new int[]{0,1}));
-        allPieces.add(pieceFactory.getPiece(PieceType.PAWN, 'w', new int[]{1,1}));
-        allPieces.add(pieceFactory.getPiece(PieceType.PAWN, 'w', new int[]{2,1}));
-        allPieces.add(pieceFactory.getPiece(PieceType.PAWN, 'w', new int[]{3,1}));
-        allPieces.add(pieceFactory.getPiece(PieceType.PAWN, 'w', new int[]{4,1}));
-        allPieces.add(pieceFactory.getPiece(PieceType.PAWN, 'w', new int[]{5,1}));
-        allPieces.add(pieceFactory.getPiece(PieceType.PAWN, 'w', new int[]{6,1}));
-        allPieces.add(pieceFactory.getPiece(PieceType.PAWN, 'w', new int[]{7,1}));
-        allPieces.add(pieceFactory.getPiece(PieceType.ROOK, 'w', new int[]{0,0}));
-        allPieces.add(pieceFactory.getPiece(PieceType.ROOK, 'w', new int[]{7,0}));
+        allPieces.add(pieceFactory.getPiece(PieceType.PAWN, 'w', new int[]{0,1}, whiteTeam));
+        allPieces.add(pieceFactory.getPiece(PieceType.PAWN, 'w', new int[]{1,1}, whiteTeam));
+        allPieces.add(pieceFactory.getPiece(PieceType.PAWN, 'w', new int[]{2,1}, whiteTeam));
+        allPieces.add(pieceFactory.getPiece(PieceType.PAWN, 'w', new int[]{3,1}, whiteTeam));
+        allPieces.add(pieceFactory.getPiece(PieceType.PAWN, 'w', new int[]{4,1}, whiteTeam));
+        allPieces.add(pieceFactory.getPiece(PieceType.PAWN, 'w', new int[]{5,1}, whiteTeam));
+        allPieces.add(pieceFactory.getPiece(PieceType.PAWN, 'w', new int[]{6,1}, whiteTeam));
+        allPieces.add(pieceFactory.getPiece(PieceType.PAWN, 'w', new int[]{7,1}, whiteTeam));
+        allPieces.add(pieceFactory.getPiece(PieceType.ROOK, 'w', new int[]{0,0}, whiteTeam));
+        allPieces.add(pieceFactory.getPiece(PieceType.ROOK, 'w', new int[]{7,0}, whiteTeam));
         
-        allPieces.add(pieceFactory.getPiece(PieceType.KNIGHT, 'b', new int[]{1,2}));
-        allPieces.add(pieceFactory.getPiece(PieceType.ROOK, 'b', new int[]{2,3}));
+        allPieces.add(pieceFactory.getPiece(PieceType.KNIGHT, 'b', new int[]{1,2},blackTeam));
+        allPieces.add(pieceFactory.getPiece(PieceType.ROOK, 'b', new int[]{2,3},blackTeam));
 
         for(int i = 0; i < allPieces.size(); i++){
             Piece currentPiece = allPieces.get(i);

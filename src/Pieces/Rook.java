@@ -7,6 +7,7 @@ package Pieces;
 
 import ChessBoard.Board;
 import Movement.PieceMovement;
+import chessgame.ChessTeam;
 
 /**
  *
@@ -14,8 +15,8 @@ import Movement.PieceMovement;
  */
 public class Rook extends Piece{
 
-    public Rook(char team, int[] location) {
-        super(team, location);
+    public Rook(char team, int[] location, ChessTeam myTeam) {
+        super(team, location, myTeam);
     }
     
     Board board = Board.getInstance();

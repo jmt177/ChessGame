@@ -2,6 +2,23 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/jtdollarsign/Documents/NetBeansProjects/chessGame/src/Pieces/Bishop.java</file>
+            <file>file:/C:/Users/jtdollarsign/Documents/NetBeansProjects/chessGame/src/CreatePieces/PieceType.java</file>
+            <file>file:/C:/Users/jtdollarsign/Documents/NetBeansProjects/chessGame/src/Pieces/Knight.java</file>
+            <file>file:/C:/Users/jtdollarsign/Documents/NetBeansProjects/chessGame/src/CreatePieces/PieceFactory.java</file>
+            <file>file:/C:/Users/jtdollarsign/Documents/NetBeansProjects/chessGame/src/chessgame/testing.java</file>
+            <file>file:/C:/Users/jtdollarsign/Documents/NetBeansProjects/chessGame/src/chessgame/CreateTeam.java</file>
+            <file>file:/C:/Users/jtdollarsign/Documents/NetBeansProjects/chessGame/src/chessgame/ChessGame.java</file>
+            <file>file:/C:/Users/jtdollarsign/Documents/NetBeansProjects/chessGame/src/Pieces/King.java</file>
+            <file>file:/C:/Users/jtdollarsign/Documents/NetBeansProjects/chessGame/src/Pieces/Queen.java</file>
+            <file>file:/C:/Users/jtdollarsign/Documents/NetBeansProjects/chessGame/src/Pieces/Rook.java</file>
+            <file>file:/C:/Users/jtdollarsign/Documents/NetBeansProjects/chessGame/src/Pieces/Pawn.java</file>
+            <file>file:/C:/Users/jtdollarsign/Documents/NetBeansProjects/chessGame/src/chessgame/TestingTeam.java</file>
+            <file>file:/C:/Users/jtdollarsign/Documents/NetBeansProjects/chessGame/src/Movement/TakePiece.java</file>
+            <file>file:/C:/Users/jtdollarsign/Documents/NetBeansProjects/chessGame/src/ChessBoard/Board.java</file>
+            <file>file:/C:/Users/jtdollarsign/Documents/NetBeansProjects/chessGame/src/Pieces/Piece.java</file>
+            <file>file:/C:/Users/jtdollarsign/Documents/NetBeansProjects/chessGame/src/chessgame/ChessTeam.java</file>
+        </group>
     </open-files>
 </project-private>

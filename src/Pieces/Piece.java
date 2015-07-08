@@ -6,6 +6,7 @@
 package Pieces;
 
 import Movement.PieceMovement;
+import chessgame.ChessTeam;
 
 /**
  *
@@ -31,11 +32,13 @@ public abstract class Piece implements PieceMovement {
 
     private char team;
     private int[] location;
+    private ChessTeam myTeam;
     
     //Sets the team and location
-    public Piece(char team, int[] location) {
+    public Piece(char team, int[] location, ChessTeam myTeam) {
         this.team = team;
         this.location = location;
+        this.myTeam = myTeam;
     }
     
     public int getRow(){
@@ -45,11 +48,7 @@ public abstract class Piece implements PieceMovement {
     public int getColumn(){
         return location[0];
     }
-    
-    public char getTeam(){
-        return team;
-    }
-    
+   
     public int[] getLocation(){
         return location;
     }
@@ -57,6 +56,14 @@ public abstract class Piece implements PieceMovement {
     public void setLocation(int[] loc){
         this.location[0] = loc[0];
         this.location[1] = loc[1];
+    }
+    
+    public char getTeam(){
+        return team;
+    }
+    
+    public ChessTeam getChessTeam(){
+        return myTeam;
     }
 
     @Override
