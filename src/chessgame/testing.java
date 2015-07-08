@@ -7,8 +7,8 @@ package chessgame;
 
 import ChessBoard.Board;
 import Pieces.Piece;
-import Pieces.PieceFactory;
-import Pieces.PieceType;
+import CreatePieces.PieceFactory;
+import CreatePieces.PieceType;
 
 /**
  *
@@ -22,8 +22,8 @@ public class testing {
         board.setWidth(8);
         board.setBoard(board.getLength(), board.getWidth());        
         PieceFactory pieceFactory = new PieceFactory();
-        Piece testPiece = pieceFactory.getPiece(PieceType.KNIGHT, 'b', new int[]{1,2});
-        Piece testPiece2 = pieceFactory.getPiece(PieceType.ROOK, 'b', new int[]{2,3});
+        Piece testPiece = pieceFactory.getPiece(PieceType.KNIGHT, 'b', new int[]{1,2}, null);
+        Piece testPiece2 = pieceFactory.getPiece(PieceType.ROOK, 'b', new int[]{2,3}, null);
  
 
     
