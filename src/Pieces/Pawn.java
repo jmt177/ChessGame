@@ -13,9 +13,10 @@ import chessgame.ChessTeam;
  *
  * NEED TO IMPLEMENT:
  * En Passant
+ * Promotion
+ * NEED TO TEST:
  * First move can be one or two squares
  * Attack diagonally only
- * Promotion
  */
 public class Pawn extends Piece {
     private int dir;
@@ -48,13 +49,9 @@ public class Pawn extends Piece {
             if(piece.getColumn() == toMove[0] && board.onSquare(toMove[0], toMove[1]) == null){
                 // If the piece has not moved, can move forward 2 OR
                 // movement distance is 1
-                if((starting[1] == piece.getRow() && Math.abs(toMove[1] - piece.getRow()) == 2)
-                   || Math.abs(toMove[1] - piece.getRow()) == 1){
-                    return true;
-                } 
                 // Returns true here if correct direction and the distance to move is 1
-                return false;
-                
+                return (starting[1] == piece.getRow() && Math.abs(toMove[1] - piece.getRow()) == 2)
+                        || Math.abs(toMove[1] - piece.getRow()) == 1;
             // Diagonal movement, only for attacking. toMove already passed inBoard, no need to worry about that
             } else {
                 // only allowed to move 1
@@ -66,14 +63,14 @@ public class Pawn extends Piece {
                    board.onSquare(toMove[0], toMove[1]).getTeam() == this.getTeam()){
                     return false;
                 }
-
+                // Only may attack one square away
                 if(Math.abs(toMove[0] - piece.getColumn()) == 1 && 
                    Math.abs(toMove[1] - piece.getRow()) == 1){
                     return true;
                 }
             }
         }
-        // if we get here, most likely don't want to let it move
+        // Not in board
         return false;
     }
 
@@ -85,7 +82,9 @@ public class Pawn extends Piece {
 
     @Override
     public boolean noAlly(Piece piece, int[] toMove) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // The unique movment of pawns makes this unnecessary for now
+        // will likely need for En Passant
+        return board.onSquare(toMove[0], toMove[1]) == null;
     }
 
 }
