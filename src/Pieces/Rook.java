@@ -52,7 +52,7 @@ public class Rook extends Piece{
 
     @Override
     public boolean noAlly(Piece piece, int[] toMove) {
-        // if the location to move is in the board and not occupied by an allied piece, go for it
+        // if the location to move is in the board and not occupied by an allied piece
         if(inBoard(toMove) && board.onSquare(toMove[0], toMove[1]).getTeam() != piece.getTeam()){
             // if the column is correct, moving down the row
             if(piece.getColumn() == toMove[0]){
