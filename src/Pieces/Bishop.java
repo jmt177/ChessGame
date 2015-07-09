@@ -31,11 +31,13 @@ public class Bishop extends Piece {
            Math.abs(piece.getColumn() - toMove[0]) != Math.abs(piece.getRow() - toMove[1])){
             return false;
         }
-   
-       if(inBoard(toMove) && (board.onSquare(toMove[0], toMove[1]) == null || noAlly(piece, toMove))){
-           return true;
-       }
-        return false;
+        // If in board AND (square is empty or occupied by an enemy) AND no pieces
+        // blocking travel to that point. noAlly should probably be renamed to notBlocked
+        // or something similar
+        return(inBoard(toMove) && 
+          ((board.onSquare(toMove[0], toMove[1]) == null || 
+            board.onSquare(toMove[0], toMove[1]).getTeam() != piece.getTeam()) &&
+            noAlly(piece, toMove)));
     }
 
     @Override

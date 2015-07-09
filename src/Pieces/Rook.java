@@ -30,11 +30,16 @@ public class Rook extends Piece{
         if((piece.getColumn() == toMove[0] && piece.getRow() == toMove[1]) ||
            (piece.getColumn() != toMove[0] && piece.getRow() != toMove[1])){
             return false;
-        }       
-       if(inBoard(toMove) && (board.onSquare(toMove[0], toMove[1]) == null || noAlly(piece, toMove))){
-           return true;
-       }
-        return false;
+        }     
+        
+        // If in board AND (square is empty or occupied by an enemy) AND no pieces
+        // blocking travel to that point. noAlly should probably be renamed to notBlocked
+        // or something similar
+        return(inBoard(toMove) && 
+          ((board.onSquare(toMove[0], toMove[1]) == null || 
+            board.onSquare(toMove[0], toMove[1]).getTeam() != piece.getTeam()) &&
+            noAlly(piece, toMove)));
+
     }
 
     @Override
@@ -71,8 +76,9 @@ public class Rook extends Piece{
     // rowColumn is the row or column int, target is toMove int,
     // target holds a 1/-1 and a 0, representing the direction to move
     // need to be able to add the direction to itself, hence tRow tCol
-    // currently incorrect, does not account for ending on target while
-    // target is occupied with an enemy piece
+    // *currently incorrect, does not account for ending on target while
+    // *target is occupied with an enemy piece
+    // *Should be fine, will take care of that issue outside of this class
     private boolean privNoAlly(Piece piece, int[] toMove, int[] dir){
         int tRow = dir[1];
         int tCol = dir[0];
